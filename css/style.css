@@ -1,0 +1,111 @@
+html{
+	font-size: 16px;
+}
+
+*{
+	margin: 0px;
+	padding: 0px;
+	text-indent: 0px;
+}
+
+main{
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 60px;
+	background-color: #eeeeee;
+}
+
+nav{
+	width: 100%;
+	background-color: #212121;
+}
+header{
+	width: 100%;
+	background-color: #212121;
+	color: white;
+	position: fixed;
+}
+footer{
+	padding: 15px;
+	text-align: center;
+	justify-content: center;
+	background-color: #212121;
+	color: white;
+}
+ul.menu>li, ul.menu>li>ul.submenu>li{
+		
+		display: block;
+		font-size: 1.2rem;
+		font-weight: bold;
+		height: 1.2rem;
+		line-height: 1.2rem;
+		text-align: center;		
+		list-style-type: none;
+		overflow: hidden;
+		width: auto;
+	}
+
+ul.menu>li{
+	 float: left;
+	 width: 20%;
+	}
+
+ul.submenu>li{
+	 width:100%;
+	}
+ul.menu>li>a,ul.menu>li>div,ul.submenu>li>a{
+		display: block;
+		height:	100%;
+		text-decoration: none;
+		color: white;
+	}
+
+	ul.menu>li>ul.submenu{
+		position: relative;
+		top: 0px;
+		background: #212121;
+		width: 100%;
+	}
+
+	ul.menu>li>ul.submenu>li
+	{
+		border-top: 1px solid black;
+	}
+	ul.menu>li>ul.submenu>li:last-child
+	{
+		border-bottom: 1px solid black;
+	}
+
+	ul.menu>li>a:hover, ul.submenu>li>a:hover{
+		background: #0d7377;
+	}
+	ul.menu>li:hover{
+		overflow:visible;
+	}
+
+	@media screen and (min-width:400px) and (max-width:700px){
+		ul.menu>li{
+		 width:25%;
+		}
+		ul.menu>li ul.submenu>li:hover{
+				background: #0d7377;
+		}
+		ul.menu>li:hover ul.submenu{
+			width: auto;
+			position:fixed;
+			left:0px;
+			top:3.5rem;
+			border-top:1px solid black;
+			border-bottom:1px solid black;
+			justify-content: center;
+		}
+		ul.menu>li:hover ul.submenu>li{
+			float:left;
+			width:auto;
+			border:none;
+			text-align: center;
+			padding: 10px;
+			height: 1.2rem;
+		}
+	}
+	
