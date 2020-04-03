@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ro">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<script src="resurse/js/script.js">
+		</script>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		*{
+	padding: 0;
+	margin: 0;
+	text-indent: 0;
+}
+		.social-menu{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+		}
+		.social-menu ul li{
+			list-style: none;
+			float: left;
+			margin: 0.20rem;
+			
+
+		}
+		.social-menu ul li a{
+			display: block;
+			width: 3rem;
+			height: 3rem;
+			border-radius: 50%;
+			border: 1px solid black;
+			background-image: linear-gradient(to bottom , white, white);
+			text-align: center;
+			line-height: 3rem;
+			font-size: 1.5rem;
+			transition: background-image 2s ease-in-out,transform 0.3s linear;
+		}
+		.social-menu ul li:nth-child(1) a:hover{
+			background-image: linear-gradient(to bottom, #634ecb, #f44e55, #ffc351);
+			transform: translate(0,-10px);
+		}
+		
+		.social-menu ul li:nth-child(2) a:hover{
+			background-image: linear-gradient(to bottom, #698ed7, #4267b2);
+			transform: translate(0,-10px);
+		}
+		.social-menu ul li:nth-child(3) a:hover{
+			background-image: linear-gradient(to bottom, #ff0000,#d80000, #ff0000);
+			transform: translate(0,-10px);
+		}
+		.social-menu ul li:nth-child(4) a:hover{
+			background-image: linear-gradient(to bottom, #3f1f71, #d76d77, #fba97b);
+			transform: translate(0,-10px);
+		}
+		.social-menu ul li:nth-child(5) a:hover{
+			background-image: linear-gradient(to bottom, #57f968, #45ea81, #29d2ab);
+			transform: translate(0,-10px);
+		}
+		.social-menu img{
+			margin-top: 0.5rem;
+			width: 2rem;
+			height: 2rem;
+		}
+		.social-menu ul li a:hover img{
+			filter: invert(100);
+		}
+		footer{
+	margin-top: 1.25rem;
+	padding: 1.25rem;
+	color: white;
+	background-color: black;
+	text-align: center;
+	text-decoration: none;
+	font-family: 'Teko', sans-serif;
+	font-size: 1.6rem;
+}
+	@media screen and (max-width:800px){
+		html{
+			font-size: 12px;
+		}
+
+	}
+	@media screen and (max-width:400px){
+		html{
+			font-size: 10px;
+		}
+
+	}
+			
+
+	margin-top: 20px;
+	padding: 20px;
+	color: white;
+	background-color: black;
+	text-align: center;
+	text-decoration: none;
+	font-family: 'Teko', sans-serif;
+	font-size: 1.6rem;
+}
+	</style>
+	</head>
+	
+	<body>
+		
+		<main>
+
+		</main>
+		
+		<footer>
+			<div class="social-menu">
+			<ul>
+				<li><a href="#"><img src="insta_logo.png"></a></li>
+				<li><a href="#"><img src="facebook_logo.png"></a></li>
+				<li><a href="#"><img src="youtube_logo.png"></a></li>
+				<li><a href="#"><img src="email_logo.png"></a></li>
+				<li><a href="#"><img src="phone_logo.png"></a></li>
+			</ul>
+		</div>
+		<div id="alte_info">
+			<p><small>Copyright © 2020 Online Sneaker Market. All rights reserved.</small></p>
+		</div>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+	html{
+		font-size: 10px;
+	}
+	
+	h1{
+	padding-top: 185px;
+	bottom: 30px;
+	}
+	
+	ul.meniu>li{
+			width: 100%;
+		}
+	
+	ul.meniu>li:hover ul.submeniu{
+		top:7.2rem;
+			
+	}
+	
+	.postare{
+		margin: 0;
+		width: 100%;
+		box-shadow: none;
+		border-bottom: 1px #c5c6c8 solid;
+		box-shadow:inset #c5c6c8 0px 0px 8px;
+	}
+
+	div#grid{
+	grid-template-columns: auto;
+	}
+	#grid>section:last-child{
+	grid-area: auto;
+	}
+
+	.galerie{
+		display: none;
+	}
+	.galerie + aside{
+	display: inline;
+}
+

@@ -1,83 +1,133 @@
 <!DOCTYPE html>
 <html lang="ro">
 	<head>
+		<title>ONLINE SNEAKER MARKET</title>
 		<meta charset="UTF-8">
-		<title>Online Sneaker Market</title>
-		<link rel="shortcut icon" type="image/png" href="imagini/logo.png">
-		<link rel="stylesheet" type="text/css" href=css/style.css>
-		<meta name="description" content="Un magazin online de adidasi">
-		<meta name="keywords" content="magazin, online, adidasi">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" type="image/png" href="imagini/logo.png">
-	</head>
+		<meta name="description" content="Pagina principala a magazinului ONLINE SNEAKER MARKET">
+		<meta name="keywords" content="Adidasi, Magazin, Home, Scurt, Istoric, Reduceri, Aparitii, Produse, Galerie.">
+		<meta name="author" content="Daineanu Denis-Alexandru">
+		<link rel="shortcut icon" type="image/png" href="resurse/imagini/favicon.png">
+		<link rel="stylesheet" type="text/css" href="resurse/css/stil.css"/>
+		<link rel="stylesheet" type="text/css" href="resurse/css/stil_800.css" media="screen and (max-width:800px)"/>
+		<link rel="stylesheet" type="text/css" href="resurse/css/stil_400.css" media="screen and (max-width:400px)"/>
+		<script src="resurse/js/script.js"></script>
+		<link rel="prefetch" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&family=Teko:wght@300;400;500;600;700&display=swap">
 
+	</head>
+	
 	<body>
 		<header>
-			<h1>ONLINE SNEAKER MARKET</h1>
-			<nav class="wrapper">
-				<ul class="menu">
+			<nav>
+				<ul class="meniu">
 					<li><a href="#">HOME</a></li>
-					<li><a href="html/produse.html">PRODUSE</a>
-					<ul class="submenu">
-							<li><a href="html/produse.html">Adidasi Femei</a></li>
-							<li><a href="html/produse.html">Adidasi Barbati</a></li>
-						</ul></li>
-					<li><a href="html/blog.html">BLOG</a></li>
-					<li><a href="html/informatii.html">INFORMATII</a>
-						<ul class="submenu">
-							<li><a href="html/informatii.html#date">Date de contact</a></li>
-							<li><a href="html/informatii.html#termeni">Termeni si conditii</a></li>
-							<li><a href="html/informatii.html#plata">Plata</a></li>
-							<li><a href="html/informatii.html#info">Informatii si livrare</a></li>
-							<li><a href="html/informatii.html#retur">Retururi si politica de retur</a></li>
+					<li><a href="pagini/produse.html">PRODUSE</a>
+						<ul class="submeniu">
+							<li><a href="pagini/produse.html">ADIDASI FEMEI</a></li>
+							<li><a href="pagini/produse.html#ad_barbati">ADIDASI BARBATI</a></li>
 						</ul>
 					</li>
+					<li><a href="pagini/blog.html">BLOG</a></li>
+					<li><a href="pagini/informatii.html">INFORMATII</a></li>
 					<li><a href="#">COS</a></li>
 				</ul>
 			</nav>
+			<h1>ONLINE SNEAKER MARKET</h1>	
+		
 		</header>
+		
 		<main>
-			<section>
-				<h2>Un scurt istoric al magazinului</h2>
-				<p>Compania <em>SNEAKER MARKET</em> a fost infiintata pe data de <time datetime="2010-07-10">10 iulie 2010</time> de catre americanul John Doe.</p>
-				<p>Desi a inceput cu un singur magazin, deschis in orasul sau natal, John s-a bucurat rapid de un succes rasunator. Prin urmare, la finalul anului <time datetime="2012">2012</time> existau deja peste 30 de magazine <em>SNEAKER MARKET</em> pe teritoriul Statelor Unite si inca 10 in Canada.</p>
+			<section class="postare">
+				<img src="resurse/imagini/istoric.jpg" alt="Imagine lipsa" title="O pereche de vans">
+				<h2>UN SCURT ISTORIC AL MAGAZINULUI</h2>
+				<p>Compania SNEAKER MARKET a fost infiintata pe data de <time datetime="2010-07-10">10 iulie 2010</time> de catre americanul John Doe.</p>
+				<p>Desi a inceput cu un singur magazin, deschis in orasul sau natal, John s-a bucurat rapid de un succes rasunator. Prin urmare, la finalul anului <time datetime="2012">2012</time> existau deja peste 30 de magazine SNEAKER MARKET pe teritoriul Statelor Unite si inca 10 in Canada.</p>
 				<p>Anul <time datetime="2014">2014</time> marcheaza inaugurarea primului magazin din Europa, in capitala Germaniei, Berlin.Au urmat alte tari, precum Franta, Olanda, Italia, Grecia si Romania. In prezent ne putem lauda cu magazine in circa 25 de orase europene.</p>
-				<p>Iar acum, la 10 ani de la deschiderea primului magazin, suntem mandri sa anuntam noul nostru brand: <em>ONLINE SNEAKER MARKET</em>.</p>
+				<p>Iar acum, la 10 ani de la deschiderea primului magazin, suntem mandri sa anuntam noul nostru brand: ONLINE SNEAKER MARKET.</p>
 			</section>
-			<section>
-				<h2>Noi aparitii</h2>
+
+			<section id="galerie_statica" class="postare">
+				<h2>NOI APARITII</h2>
+				<div id="grid">
 				<figure>
-					<img src="imagini/converse_classic.jpg" alt="Converse Clasic" width="400" height="266">
-					<figcaption>Converse Clasic</figcaption>
+					<img src="resurse/imagini/1-mid-se.jpg" alt="Imagine lipsa" title="Jordan 1 Mid">
+					<figcaption>Jordan 1 Mid SE</figcaption>
 				</figure>
 				<figure>
-					<img src="imagini/jordan_mid_br.jpg" alt="Jordan Mid WMNS" width="400" height="266">
-					<figcaption>Jordan Mid WMNS</figcaption>
+					<img src="resurse/imagini/old-skool-comfycush-sport.jpg" alt="Imagine lipsa" title="Jordan 1 Mid">
+					<figcaption>Vans Old Skool Comfycush Sport</figcaption>
 				</figure>
 				<figure>
-					<img src="imagini/vans_checkered.jpg" alt="converse" width="400" height="266">
-					<figcaption>Vans Checkered</figcaption>
+					<img src="resurse/imagini/p-6000.jpg" alt="p-6000">
+					<figcaption>Nike P-6000</figcaption>
 				</figure>
+				<figure>
+					<img src="resurse/imagini/pro-leather-mid.jpg" alt="Imagine lipsa" title="Jordan 1 Mid">
+					<figcaption>Converse Pro Leather Mid</figcaption>
+				</figure>
+				<figure>
+					<img src="resurse/imagini/disruptor-low.jpg" alt="Imagine lipsa" title="Jordan 1 Mid">
+					<figcaption>Fila Disruptor Low</figcaption>
+				</figure>
+				<figure>
+					<img src="resurse/imagini/chuck-taylor-all-star-classic.jpg" alt="Imagine lipsa" title="Jordan 1 Mid">
+					<figcaption>Converse Chuck Taylor All Star Classic</figcaption>
+				</figure>
+				<figure>
+					<img src="resurse/imagini/blazer-mid-77-vintage.jpg" alt="Imagine lipsa" title="Jordan 1 Mid">
+					<figcaption>Nike Blazer Mid 77 Vintage</figcaption>
+				</figure>
+				<figure>
+					<img src="resurse/imagini/superstar-laceless.jpg" alt="Imagine lipsa" title="Jordan 1 Mid">
+					<figcaption>Adidas Superstar Laceless</figcaption>
+				</figure>
+				</div>
 			</section>
-			<section>
-				<h2>Reduceri</h2>
+
+			<section class="postare">
+				<h2>!REDUCERI!</h2>
+				<div id="galerie_exemplu" class="galerie">
 				<figure>
-					<img src="imagini/fila_disruptor_w.jpg" alt="Fila Disruptor White" width="400" height="266">
-					<figcaption>Fila Disruptor</figcaption>
+					<img src="resurse/imagini/997-hoc.jpg" alt="997-hoc"/>
+					<figcaption>New Balance 997 Hoc</figcaption>
 				</figure>
 				<figure>
-					<img src="imagini/nike_vapormax_g.jpg" alt="Nike Vapormax Grey" width="400" height="266">
-					<figcaption>Nike Vapormax</figcaption>
+					<img src="resurse/imagini/sid-dx.jpg" alt="sid-dx">
+					<figcaption>Vans Sid Deluxe</figcaption>
 				</figure>
 				<figure>
-					<img src="imagini/vans_larry_edgar.jpg" alt="Vans Larry Edgar" width="400" height="266">
-					<figcaption>Vans Larry Edgar</figcaption>
+					<img src="resurse/imagini/3-retro-se.jpg" alt="3-retro-se">
+					<figcaption>Air Jordan 3 Retro</figcaption>
 				</figure>
+				<figure>
+					<img src="resurse/imagini/maxin-200-gs.jpg" alt="maxin-200-gs">
+					<figcaption>Air Jordan Maxin 200</figcaption>
+				</figure>
+				<figure>
+					<img src="resurse/imagini/max-200-gs.jpg" alt="max-200-gs">
+					<figcaption>Jordan Max 200</figcaption>
+				</figure>	
+				</div>
+				<aside>Consultati sectiunea produse pentru a vedea reducerile</aside>
 			</section>
+
 		</main>
+		
 		<footer>
-			<p><small>Copyright © 2020 Online Sneaker Market. All rights reserved.</small></p>
+			<div class="social-menu">
+			<ul>
+				<li><a href="https://www.instagram.com/sneakersnstuff/?hl=ro"><img src="resurse/imagini/social_media_logo/insta_logo.png" alt="Imagine lipsa" title="Logo Instagram"></a></li>
+				<li><a href="https://www.facebook.com/"><img src="resurse/imagini/social_media_logo/facebook_logo.png" alt="Imagine lipsa" title="Logo Facebook"></a></li>
+				<li><a href="https://www.youtube.com/user/sneakernews"><img src="resurse/imagini/social_media_logo/youtube_logo.png" alt="Imagine lipsa" title="Logo YouTube"></a></li>
+				<li><a href="mailto:online_sneaker_market@gmail.com"><img src="resurse/imagini/social_media_logo/email_logo.png" alt="Imagine lipsa" title="Simbol Email"></a></li>
+				<li><a href="tel:555-555-5555"><img src="resurse/imagini/social_media_logo/phone_logo.png" alt="Imagine lipsa" title="Simbol Telefon"></a></li>
+			</ul>
+			</div>
+			<p><a href="#"><small>&uArr; Copyright &copy; 2020 Online Sneaker Market. All rights reserved. &uArr;</small></a></p>
+			<p><a href="pagini/bibliografie.html"><small>BIBLIOGRAFIE</small></a></p>
+		
 		</footer>
 
 	</body>
+
 </html>
