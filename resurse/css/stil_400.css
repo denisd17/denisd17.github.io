@@ -40,3 +40,23 @@ display: none;
 display: inline;
 }
 
+#coloane{
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+#coloane>p{
+	padding: 1rem;
+}
+
+#coloane>p:nth-child(1){
+	order: 3;
+}
+
+#coloane>p:nth-child(2){
+	order: 1;
+}
+#coloane>p:nth-child(3){
+	order: 2;
+}
+

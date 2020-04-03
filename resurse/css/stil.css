@@ -391,6 +391,20 @@ ol{
 	filter: invert(100);
 }
 
+#coloane{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: nowrap;
+	align-items: flex-start;
+}
+#coloane>p{
+	box-sizing: border-box;
+	flex-basis: 33%;
+	padding: 1rem;
+}
+
+
 
 
 
