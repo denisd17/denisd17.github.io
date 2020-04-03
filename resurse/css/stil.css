@@ -4,9 +4,13 @@
 	margin: 0;
 	text-indent: 0;
 }
+
+/*----------GENERAL----------*/
 html{
 	font-size: 16px;
+	font-family: 'Teko', sans-serif;
 }
+
 nav{
 	width:100%;
 	position:fixed;
@@ -15,33 +19,34 @@ nav{
 
 h1{
 	padding-top: 100px;
-	font-family: 'Teko', sans-serif;
 	font-size: 9vw;
 	font-weight: bold;
 }
+
 header{
 	text-align: center;
 }
+
 footer{
 	margin-top: 20px;
 	padding: 20px;
 	background-color: black;
 	text-align: center;
-	font-family: 'Teko', sans-serif;
 	font-size: 1.6rem;
 	
 }
+
 footer p a{
 	text-decoration: none;
 	color: white;
 }
-body{
 
+body{
 	background-image: url("../imagini/Sports.png");
 
 }
 
-/*----------MENIU----------*/
+/*----------MENIU DERULANT----------*/
 ul.meniu>li, ul.meniu>li>ul.submeniu>li{
 	box-sizing: border-box;
 	border: 1px #c5c6c8 solid;
@@ -52,8 +57,6 @@ ul.meniu>li, ul.meniu>li>ul.submeniu>li{
 	text-align: center;		
 	list-style-type: none;
 	overflow: hidden;
-	font-family: 'Teko', sans-serif;
-
 }
 
 ul.meniu>li{
@@ -64,7 +67,6 @@ ul.meniu>li{
 
 ul.submenu>li{
 	width:100%;
-
 }
 
 ul.meniu>li>a, ul.submeniu>li>a{
@@ -72,7 +74,6 @@ ul.meniu>li>a, ul.submeniu>li>a{
 	height:	100%;
 	text-decoration: none;
 	color: #c5c6c8;
-	font-family: 'Teko', sans-serif;
 	background-color: black;
 	transition: background-color 0.5s linear, color 0.5s linear;	
 }
@@ -90,56 +91,24 @@ ul.meniu>li:hover{
 	overflow:visible;
 }
 /*----------TABEL PRODUSE----------*/
- tr{
-            width: 100%;
-        }
-        th,td{
-            border:1px solid black;
-        }
-        table{
-            border-collapse:collapse;
-            width: 100%;
-            text-align: center;
-            box-sizing: border-box;
-            
-        }
-
-        @media screen and (max-width: 800px){
-            th{
-                display: none;
-            }
-
-            tbody td:nth-child(2)::before{
-                content: "Marimi";
-            }
-            tbody td:nth-child(3)::before{
-                content: "Culori";
-            }
-            tbody td:nth-child(4)::before{
-                content: "Pret";
-            }
-
-            td{
-            border-left: none;
-            border-right: none;
-            float:left;
-            width:100%;
-            }
-            td::before{
-            float:left;
-            width:25%;
-            background:lightgrey;
-            font-weight:bold;
-            line-height:100%;
-            height: 100%;
-        }
-
-        }
+tr{
+	width: 100%;
+}
+        
+th,td{
+	border: 1px solid black;
+}
+        
+table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
 
 /*----------POSTARE----------*/
 .postare{
 	margin-top: 20px;
-	font-family: 'Teko', sans-serif;
 	font-size: 1.4rem;
 	margin-left: 10%;
 	margin-right: 10%;
@@ -171,8 +140,9 @@ section.postare:nth-child(3){
 	width: 100%;
 }
 .postare ul{
-		padding: 2rem;
-	}
+	padding: 2rem;
+}
+
 /*----------GALERIE STATICA----------*/
 div#grid{
 	display: grid;
@@ -180,9 +150,11 @@ div#grid{
 	grid-row-gap: 1em;
 	grid-column-gap: 1em;
 }
+
 #grid>section>h2{
 	font-size: 4vw;
 }
+
 #grid figure{
 	text-align: center;
 	font-size: 1.0rem;
@@ -278,6 +250,7 @@ div#grid{
 .galerie + aside{
 	display: none;
 }
+
 @keyframes gal_dinamica{ 
 	0% {z-index: 10; opacity: 1;}
 	5% {opacity:1; transform: scale(1,1)}
@@ -288,18 +261,20 @@ div#grid{
 	85%{z-index: 0;}
 	100%{opacity: 1; z-index: 0;}
 }
+
+/*---------BLOG---------*/
 #blog>h2{
 	font-size: 7vw;
 	font-weight: normal;
 	color: black;
 	text-align: center;
 	background-color: white;
-	font-family: 'Teko', sans-serif;
-
 }
+
 article>img{
 	filter: brightness(0.5);
 }
+
 article>h3{
 	position: absolute;
 	top: 2rem;
@@ -310,6 +285,7 @@ article>h3{
 	color: white;
 	font-size: 1.8rem;
 }
+
 article>video{
 	display: block;
 	box-sizing: border-box;
@@ -317,18 +293,21 @@ article>video{
 	height: auto;
 	margin: 0 auto;
 	border: 6px grey inset;
-	
 }
+
 article>p{
 	padding: 1rem;
 }
+
 td s{
 	color: grey;
 }
-/*counter*/
+
+/*---------COUNTER---------*/
 section.postare{
   counter-reset: sectiune;
 }
+
 ol{
 	list-style: none;
 	counter-reset: lista;
@@ -338,15 +317,13 @@ ol{
   counter-increment: sectiune;
   content: counter(sectiune) ". ";
 }
-.postare>section>ol>li{
 
-}
 .postare>section>ol>li::before{
 	counter-increment: lista;
 	content: counter(sectiune) "." counter(lista) " ";
 }
 
-/*subsectiuni*/
+/*----------SUBSECTIUNI----------*/
 .postare>section>h3{
 	font-size: 4rem;
 }
@@ -356,56 +333,63 @@ ol{
 
 /*----------MENIU SOCIAL MEDIA----------*/
 .social-menu{
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-		}
-		.social-menu ul li{
-			list-style: none;
-			float: left;
-			margin: 0.20rem;
-			
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	}
+	
+.social-menu ul li{
+	list-style: none;
+	float: left;
+	margin: 0.20rem;
+}
 
-		}
-		.social-menu ul li a{
-			display: block;
-			width: 3rem;
-			height: 3rem;
-			border-radius: 50%;
-			border: 1px solid black;
-			background-color: white;
-			text-align: center;
-			line-height: 3rem;
-			font-size: 1.5rem;
-			transition: background-image 2s ease-in-out,transform 0.3s linear;
-		}
-		.social-menu ul li a:hover{
-			transform: translate(0,-0.625rem);
-		}
-		.social-menu ul li:nth-child(1) a:hover{
-			background-image: linear-gradient(to bottom left, #634ecb, #f44e55, #ffc351);
-		}
+.social-menu ul li a{
+	display: block;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	border: 1px solid black;
+	background-color: white;
+	text-align: center;
+	line-height: 3rem;
+	font-size: 1.5rem;
+	transition: transform 0.3s linear;
+}
+
+.social-menu ul li a:hover{
+	transform: translate(0,-0.625rem);
+}
+
+.social-menu ul li:nth-child(1) a:hover{
+	background-image: linear-gradient(to bottom left, #634ecb, #f44e55, #ffc351);
+}
 		
-		.social-menu ul li:nth-child(2) a:hover{
-			background-image: linear-gradient(to bottom, #698ed7, #4267b2);
-		}
-		.social-menu ul li:nth-child(3) a:hover{
-			background-image: radial-gradient(circle, #ff0000, #d80000,#e36666, #ff0000);
-		}
-		.social-menu ul li:nth-child(4) a:hover{
-			background-image: linear-gradient(to top, #3f1f71, #d76d77, #fba97b);
-		}
-		.social-menu ul li:nth-child(5) a:hover{
-			background-image:repeating-radial-gradient(#57f968, #45ea81, #29d2ab, white);
-		}
-		.social-menu img{
-			margin-top: 0.5rem;
-			width: 2rem;
-			height: 2rem;
-		}
-		.social-menu ul li a:hover img{
-			filter: invert(100);
-		}
+.social-menu ul li:nth-child(2) a:hover{
+	background-image: linear-gradient(to bottom, #698ed7, #4267b2);
+}
+
+.social-menu ul li:nth-child(3) a:hover{
+	background-image: radial-gradient(circle, #ff0000, #d80000,#e36666, #ff0000);
+}
+
+.social-menu ul li:nth-child(4) a:hover{
+	background-image: linear-gradient(to top, #3f1f71, #d76d77, #fba97b);
+}
+
+.social-menu ul li:nth-child(5) a:hover{
+	background-image:repeating-radial-gradient(#57f968, #45ea81, #29d2ab, white);
+}
+
+.social-menu img{
+	margin-top: 0.5rem;
+	width: 2rem;
+	height: 2rem;
+}
+
+.social-menu ul li a:hover img{
+	filter: invert(100);
+}
 
 
 
