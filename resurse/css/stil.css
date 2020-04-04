@@ -358,7 +358,7 @@ ol{
 }
 
 .social-menu ul li a:hover{
-	transform: translate(0,-0.625rem);
+	transform: translate(0,-0.625rem) scale(1.1,1.1);
 }
 
 .social-menu ul li:nth-child(1) a:hover{
