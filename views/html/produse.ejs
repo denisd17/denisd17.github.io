@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ro">
+	<head>
+		<title>SECTIUNE MAGAZIN</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Sectiunea de magazin, de unde puteti achizitiona diverse perechi de adidasi.">
+		<meta name="keywords" content="Adidasi, Magazin, Produse, Pret, Marime, Achizitionare">
+		<meta name="author" content="Daineanu Denis-Alexandru">
+		<link rel="shortcut icon" type="image/png" href="/imagini/favicon.png">
+		<link rel="stylesheet" type="text/css" href="/css/stil.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/stil_800.css" media="screen and (max-width:800px)"/>
+		<link rel="stylesheet" type="text/css" href="/css/stil_400.css" media="screen and (max-width:400px)"/>
+		<script src="/js/script.js"></script>
+		<script src="/js/ejs.min.js"></script>
+		<script src="/js/scriptajax.js"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+	</head>
+	
+	<body>
+		<%-  include('../fragmente/header')  %>
+		
+		<main>
+			<section class="postare" id="ad_femei">
+				<h2>Adidasi Femei</h2>
+				<div class="afis" id="afisF"></div>
+		
+			</section>
+			<section class="postare" id="ad_barbati">
+				<h2>Adidasi Barbati</h2>
+				<div class="afis" id="afisM"></div>
+				
+			</section>
+			
+		</main>
+		
+		<%-  include('../fragmente/footer')  %>
+
+	</body>
+
+</html>

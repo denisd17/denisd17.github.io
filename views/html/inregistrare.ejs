@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ro">
+	<head>
+		<title>SECTIUNE MAGAZIN</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Sectiunea de magazin, de unde puteti achizitiona diverse perechi de adidasi.">
+		<meta name="keywords" content="Adidasi, Magazin, Produse, Pret, Marime, Achizitionare">
+		<meta name="author" content="Daineanu Denis-Alexandru">
+		<link rel="shortcut icon" type="image/png" href="/imagini/favicon.png">
+		<link rel="stylesheet" type="text/css" href="/css/stil.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/stil_800.css" media="screen and (max-width:800px)"/>
+		<link rel="stylesheet" type="text/css" href="/css/stil_400.css" media="screen and (max-width:400px)"/>
+		<script src="/js/script.js">
+		</script>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+	</head>
+	
+	<body>
+		<%-  include('../fragmente/header')  %>
+		
+		<main>
+			<section class="panou-inregistrare">
+						<form method="post" action="/inreg" placeholder>
+						<label>
+						<p>
+						Username: <input type="text" name="username">
+						</p>
+						</label>
+						<label>
+						<label>
+						<p>
+						Email: <input type="text" name="email">
+						</p>
+						</label>
+						<p>
+						Parola: <input type="password" name="parola">
+						</p>
+						</label>
+						<label>
+						<p>
+						Nume: <input type="text" name="nume">
+						</p>
+						</label>
+						<label>
+						<p>
+						Data nasterii: <input type="date" name="data">
+						</p>
+						</label>
+						<label>
+						<p>
+						Numar perechi de adidasi: <input type="number" name="nrperechi">
+						</p>
+						</label>
+						<label>
+						<p>
+						Branduri preferate: <input type="text" name="branduri" size="50">
+						</p>
+						</label>
+						<p>Doriti sa va abonati la newsletter?</p>
+						<p>DA<input type="radio" id="da" name="news" value=true></p>
+						
+						<p>NU<input type="radio" id="nu" name="news" value=false></p>
+						
+						
+				
+						
+						<p>						
+						<input type="submit" value="INREGISTRARE">
+						</p>
+						</form>
+			</section>
+		</main>
+		
+		<%-  include('../fragmente/footer')  %>
+
+	</body>
+
+</html>

@@ -6,7 +6,29 @@ html{
 h1{
 	padding-top: 150px;
 }
-
+/*INREGISTRARE*/
+.panou-inregistrare form{
+	padding: 1rem;
+}
+/*login*/
+header>form{
+	width: 40%;
+	margin-left: 30%;
+	margin-right: 30%;
+}
+header>form *{
+	display: block;
+	width: 100%;
+	
+	
+}
+/*404*/
+.panou404>p{
+	font-size: 1.6rem;
+}
+.panou404 a{
+	font-size: 1rem;
+}
 /*----------MENIU----------*/
 ul.meniu>li{
 	width: 50%;
@@ -63,7 +85,16 @@ div#grid{
 	width: 300px;
 	height: 200px;
 }
+/*TEMPLATE*/
+.template_adidas figure>img{
+	border: none;
+	box-sizing: border-box;
+	width: 100%;
+}
 
+.template_adidas p:last-child{
+	border-bottom: 2px solid black;
+}
 /*----------TABEL----------*/	
 th{
 	display: none;
@@ -74,7 +105,7 @@ tbody td:nth-child(2)::before{
 }
 
 tbody td:nth-child(3)::before{
-content: "Culori";
+	content: "Culori";
 }
 
 tbody td:nth-child(4)::before{

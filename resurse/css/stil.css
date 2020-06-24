@@ -45,6 +45,168 @@ body{
 	background-image: url("../imagini/Sports.png");
 
 }
+/*LOGIN*/
+header aside a{
+	color: black;
+	text-decoration: none;
+}
+
+header aside a:hover{
+	color: #46a29f;
+}
+
+header>form{
+	font-size: 1.4rem;
+	
+}
+header>form input{
+	font-family: 'Teko', sans-serif;
+	box-sizing: border-box;
+	border: 1px solid black;
+	font-size: 1.4rem;
+}
+
+header>form input[type=submit]{
+	background-color: black;
+	color: #c5c6c8;
+	transition: background-color 0.2s linear, color 0.2s linear;
+}
+
+header>form input[type=submit]:hover{
+	background-color: #46a29f;
+	color: white;
+}
+/*----------PAGINA 404----------*/
+.panou404 {
+	margin-top: 20px;
+	font-size: 1.4rem;
+	margin-left: 20%;
+	margin-right: 20%;
+	position: relative;
+	width: 60%;
+	box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.75);
+	background-color: white;
+	box-sizing: border-box;
+}
+.panou404 *{
+	display: block;
+	padding: 0.8rem;
+	text-align: center;
+}
+
+.panou404>figure>img{
+	width: 50%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.panou404>p{
+	font-size: 3rem;
+}
+.panou404 a{
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	text-decoration: none;
+	background-color: black;
+	color: #c5c6c8;
+	transition: background-color 0.2s linear, color 0.2s linear;
+	font-size: 1.6rem;
+}
+
+.panou404 a:hover{
+	background-color: #46a29f;
+	color: white;
+}
+/*TEMPLATE*/
+.afis{
+	
+}
+.template_adidas{
+	display: block;
+	text-align: center;
+}
+
+.template_adidas>figure{
+	width: 100%;
+	font-size: 2rem;
+	
+}
+.template_adidas>figure>img{
+	border: 1px solid black;
+	box-sizing: border-box;
+	width: 60%;
+}
+.template_adidas p{
+	border-top: 2px solid black;
+	box-sizing: border-box;
+}
+p::before{
+	float:left;
+	width:25%;
+	background:lightgrey;
+	font-weight:bold;
+	line-height:100%;
+	height: 100%;
+}
+
+.template_adidas p:nth-child(2)::before{
+	content: "Marimi"
+}
+
+.template_adidas p:nth-child(3)::before{
+	content: "Culori"
+}
+
+.template_adidas p:nth-child(4)::before{
+	content: "Pret"
+}
+
+.template_adidas p:last-child{
+	border-bottom: 1px solid black;
+	box-sizing: border-box;
+}
+/*----------MENIU REGISTER----------*/
+
+.panou-inregistrare input{
+	width: 100%;
+	font-size: 1.4rem;
+	box-sizing: border-box;
+	background-color: #c5c6c8;
+	border: 1px solid black;
+	font-family: 'Teko', sans-serif;
+}
+
+.panou-inregistrare input[type=submit]{
+	font-size: 1.8rem;
+	background-color: black;
+	color:#c5c6c8;
+	transition: background-color 0.5s linear, color 0.5s linear;
+}
+
+.panou-inregistrare input[type=submit]:hover{
+	background-color: #46a29f;
+	color: white;
+}
+
+.panou-inregistrare p{
+	font-size: 1.8rem;
+	padding-top: 0.5rem;
+}
+
+.panou-inregistrare form{
+	padding: 5rem;
+}
+
+.panou-inregistrare form *{
+	display: block;
+}
+
+.panou-inregistrare input[type=radio]{
+	display: inline-block;
+	width: 10%;
+}
 
 /*----------MENIU DERULANT----------*/
 ul.meniu>li, ul.meniu>li>ul.submeniu>li{
@@ -105,7 +267,18 @@ table{
     text-align: center;
     box-sizing: border-box;
 }
-
+/*----------PANOU INREGISTRARE---------*/
+.panou-inregistrare{
+	margin-top: 20px;
+	font-size: 1.4rem;
+	margin-left: 25%;
+	margin-right: 25%;
+	position: relative;
+	width: 50%;
+	box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.75);
+	background-color: white;
+	box-sizing: border-box;
+}
 /*----------POSTARE----------*/
 .postare{
 	margin-top: 20px;
@@ -199,7 +372,7 @@ div#grid{
 	overflow:hidden;
 	box-shadow: 0px 4px 13px 3px rgba(0,0,0,0.75); 
 }
-.galerie figcaption{
+.galerie>figcaption{
 	position: absolute;
 	bottom: 0;
 	background-color: #46a29f;
@@ -208,11 +381,11 @@ div#grid{
 	text-align:center;
 }
 
-.galerie img{
+.galerie>img{
 	width: 100%;
 }
 
-.galerie figure{
+.galerie>figure{
 	position:relative;
 	width: 600px;
 	height: 400px;
@@ -304,6 +477,7 @@ td s{
 }
 
 /*---------COUNTER---------*/
+/*
 section.postare{
   counter-reset: sectiune;
 }
@@ -322,7 +496,7 @@ ol{
 	counter-increment: lista;
 	content: counter(sectiune) "." counter(lista) " ";
 }
-
+*/
 /*----------SUBSECTIUNI----------*/
 .postare>section>h3{
 	font-size: 4rem;
