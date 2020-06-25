@@ -119,6 +119,75 @@ header>form input[type=submit]:hover{
 	background-color: #46a29f;
 	color: white;
 }
+/*STILIZARE MENIU SORTARE FILTRARE CALCULARE*/
+.c_butoane button{
+	font-family: 'Teko', sans-serif;
+	font-size: 1.8rem;	
+	background-color: black;
+	color: #c5c6c8;
+	border: 1px solid black;
+	transition: background-color 0.2s linear, color 0.2s linear;
+}
+
+.c_butoane button:hover{
+	background-color: #46a29f;
+	color: white;
+	border: 1px solid black;
+}
+
+.c_butoane{
+	display: grid;
+	padding: 20px;
+	grid-template-columns: auto auto;
+	grid-row-gap: 1em;
+	grid-column-gap: 1em;
+}
+#container_butoane input[name="gr_chck"]{
+	transform: scale(3) translate(2px,2px);
+	visibility: hidden;
+}
+#container_butoane input[name="gr_chck"]::before{
+	background-image: url("../imagini/crescator.png");
+    background-size: 10px 10px;
+    display: inline-block;
+    width: 10px; 
+    height: 10px;
+    content:"";
+	transform: scale(1.3) translate(0px,-1px);
+	visibility: visible;
+}
+#container_butoane input[name="gr_chck"]:checked::before{
+	background-image: url("../imagini/descrescator.png");
+    background-size: 10px 10px;
+    display: inline-block;
+    width: 10px; 
+    height: 10px;
+    content:"";
+	transform: scale(1.3) translate(0px,-1px);
+}
+#container_butoane div:nth-child(7){
+	grid-area: 4/1/5/3;
+	width: 100%;
+}
+#container_butoane div:nth-child(7)>*{
+	display: inline-block;
+	width: 33%;
+	text-align: center;
+	font-size: 2rem;
+	
+}
+#container_butoane div:nth-child(7) input[type="checkbox"]{
+	transform: scale(1.8) translate(2px,-2px);
+}
+
+/*SELECTAT*/
+.selectat{
+	background-color: #46a29f;
+	color: white;
+}
+.selectat figcaption{
+	font-size: 3.8rem;
+}
 /*TEMPLATE*/
 .afis{
 	

@@ -22,15 +22,51 @@
 		<%-  include('../fragmente/header')  %>
 		
 		<main>
-			<section class="postare" id="ad_femei">
-				<h2>Adidasi Femei</h2>
-				<div class="afis" id="afisF"></div>
-		
-			</section>
-			<section class="postare" id="ad_barbati">
-				<h2>Adidasi Barbati</h2>
-				<div class="afis" id="afisM"></div>
+			
+			<div id="container_butoane" class="c_butoane postare">
 				
+				<button id="sort_nume">SORTEAZA DUPA NUME</button>
+				<label>
+				<input id="i_check1" name="gr_chck" value="20" type="checkbox"/>
+				</label>
+				
+				<button id="sort_pret">SORTEAZA DUPA PRET</button>
+				<label>
+				<input id="i_check2" name="gr_chck" value="20" type="checkbox"/>
+				</label>
+				
+				<button id="filter_pret">PRET MAXIM</button>
+				<label for="i_range1">
+				<input id="i_range1" type="range" value="100" min="100" max="1000" oninput="i_range1output.value = i_range1.value">
+				<output id="i_range1output">100</output>
+				</label>
+				
+				<div class="checkbox_tip">
+				<label>ADIDASI BARBATI
+					<input id="i_check3" name="gr_rad" checked value="M" type="checkbox"/>
+				</label>
+				<label>ADIDASI FEMEI
+					<input id="i_check4" name="gr_rad" checked value="F" type="checkbox"/>
+				</label>
+				<label>ADIDASI UNISEX
+					<input id="i_check5" name="gr_rad" checked value="U" type="checkbox"/>
+				</label>
+				</div>
+				
+				<button id="filter_marime">CAUTARE DUPA MARIME</button>
+				
+				
+				
+				<button id="filter_livrare">AFISEAZA PERECHI LIVRARE GRATUITA</button>
+				
+				<button id="resetare">RESETARE</button>
+				<button id="calcul_pret">PRET PRODUSE SELECTATE</button>
+				
+			</div>
+			<section class="postare" id="ad_femei">
+				<h2>Adidasi</h2>
+				<div class="afis" id="afis_produse"></div>
+				<p id="pret_calculat">Pretul produselor selectate este de 0 RON</p>
 			</section>
 			
 		</main>
