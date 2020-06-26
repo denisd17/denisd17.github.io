@@ -47,6 +47,7 @@ window.onload=function(){
 				<p><%= adidas.pret %> RON</p>\
 				<p><%= adidas.gen %></p>\
 				<p><%= adidas.livraregratis%><p>\
+				<p><%= adidas.lansare%><p>\
 				</div>", 
 				{adidas: obJson.adidasi[i]});
 				}
@@ -93,13 +94,32 @@ window.onload=function(){
 		}
 	}
 	setInterval(actualizareStoc, 3000);
+	//KEYPRESS
+	window.onkeydown=function(e){
+		
+		if(65 <= e.keyCode &&  e.keyCode <= 90 && e.altKey){
+			
+			var randuri = tabelProd.children;
+			
+			for(let i = 0; i < randuri.length; i++){
+			
+				let nume = randuri[i].children[0].children[1].innerHTML;
+				if(nume[0].toLowerCase() == e.key || nume[0] == e.key)
+					randuri[i].classList.toggle("selectat");
+			}
+		}
+			
+		
+	}
+	
 	
 	//SELECTARE ELEMENTE
-	document.getElementById("afis_produse").onclick=function(e){
+	document.getElementById("afis_produse").onclick=function(){
 		var produse = this.children;
 		for(let prod of produse)
 			prod.onclick=function(){
 				this.classList.toggle("selectat");
+				
 			}
 	}
 	
@@ -222,7 +242,7 @@ window.onload=function(){
 			adauga=0;
 		s+=adauga;
 		localStorage.setItem(cheie,s);
-		filtrareTip("F",adauga);
+		filtrareTip("F",Number(adauga));
    }
    
    //ADIDASI UNISEX
@@ -238,7 +258,7 @@ window.onload=function(){
 			adauga=0;
 		s+=adauga;
 		localStorage.setItem(cheie,s);
-		filtrareTip("U",adauga);	
+		filtrareTip("U",Number(adauga));	
    }
    
    //FUNCTIE GENERALA DE FILTRARE
@@ -268,6 +288,7 @@ window.onload=function(){
 			<p><%= adidas.pret %> RON</p>\
 			<p><%= adidas.gen %></p>\
 			<p><%= adidas.livraregratis%><p>\
+			<p><%= adidas.lansare%><p>\
 			</div>", 
 			{adidas: obJson.adidasi[i]});
 			}
@@ -357,6 +378,7 @@ window.onload=function(){
 				<p><%= adidas.pret %> RON</p>\
 				<p><%= adidas.gen %></p>\
 				<p><%= adidas.livraregratis%><p>\
+				<p><%= adidas.lansare%><p>\
 				</div>", 
 				{adidas: obJson.adidasi[i]});
 				}
@@ -428,6 +450,54 @@ window.onload=function(){
 		mesaj = mesaj.split(" ");
 		mesaj[5] = pret;
 		cutieMesaj.innerHTML = mesaj.join(" ");
+	}
+	//SORTARE COMPLEXA 1
+	//SORTARE DUPA NUME BRAND, PRET, RATING
+	document.getElementById("complex1").onclick=function(){
+		resetare();
+		var randuri = tabelProd.children;
+		var vranduri = Array.prototype.slice.call(randuri);
+	}
+	
+	//SORTARE COMPLEXA 2
+	//GRUPATI DUPA LUNA APARITIE, APOI AN, APOI ZI
+	document.getElementById("complex2").onclick=function(){
+		resetare();
+		var randuri = tabelProd.children;
+		var vranduri = Array.prototype.slice.call(randuri);
+		
+		vranduri.sort(function(a,b){
+        let data1 = a.children[7].innerHTML.split("-");
+		let luna1 = Number(data1[1]);
+		let an1 = Number(data1[0]);	
+		let data2 = b.children[7].innerHTML.split("-");
+		let luna2 = Number(data2[1]);
+		let an2 = Number(data2[0]);
+		
+		if(luna1 == luna2)
+		{
+			if(an1 == an2)
+				return 0;
+			else
+				return an1 < an2 ? -1 : 1;
+		}
+		else
+			return luna1 < luna2 ? -1 : 1;
+		
+		});
+		
+		for(let rand of vranduri){
+			tabelProd.appendChild(rand);
+			}
+		
+	}
+	
+	//SORTARE COMPLEXA 3
+	//SORTARE DUPA NUMAR PERECHI VALABILE APOI DUPA LIVRARE
+	document.getElementById("complex3").onclick=function(){
+		resetare();
+		var randuri = tabelProd.children;
+		var vranduri = Array.prototype.slice.call(randuri);
 	}
 	
 	//UTILIZARE LOCAL STORAGE

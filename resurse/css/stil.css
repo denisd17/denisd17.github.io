@@ -182,6 +182,26 @@ header>form input[type=submit]:hover{
 #container_butoane div:nth-child(7) input[type="checkbox"]{
 	transform: scale(1.7) translate(2px,-2px);
 }
+#buton_complex{
+	display:grid;
+	padding: 20px;
+	grid-template-columns: auto auto auto;
+	grid-row-gap: 1em;
+	grid-column-gap: 1em;
+}
+#buton_complex button{
+	font-family: 'Teko', sans-serif;
+	font-size: 1.8rem;	
+	background-color: black;
+	color: #c5c6c8;
+	border: 1px solid black;
+	transition: background-color 0.2s linear, color 0.2s linear;
+}
+#buton_complex button:hover{
+	background-color: #46a29f;
+	color: white;
+	border: 1px solid black;
+}
 /*DISPLAY*/
 .vizibil{
 	display: visible;
@@ -195,6 +215,10 @@ header>form input[type=submit]:hover{
 /*SELECTAT*/
 .selectat{
 	background-color: #46a29f;
+	color: white;
+}
+.selectat1{
+	background-color: #e36052;
 	color: white;
 }
 .selectat figcaption{
@@ -251,6 +275,10 @@ p::before{
 
 .template_adidas p:nth-child(6)::before{
 	content: "Livrare gratuita"
+}
+
+.template_adidas p:nth-child(7)::before{
+	content: "Data lansare"
 }
 
 .template_adidas p:last-child{
