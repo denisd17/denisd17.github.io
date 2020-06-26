@@ -202,6 +202,14 @@ header>form input[type=submit]:hover{
 	color: white;
 	border: 1px solid black;
 }
+/*INACTIV*/
+header div{
+	font-size: 1.4rem;
+}
+.display_none{
+    display: none;
+}
+
 /*DISPLAY*/
 .vizibil{
 	display: visible;
