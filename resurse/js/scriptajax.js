@@ -53,7 +53,10 @@ window.onload=function(){
 			
 			//adaug textul cu afisarea studentilor in container
 			container.innerHTML=textTemplate;
+			actualizarePreferinte();
 	}
+	tabelProd = document.getElementById("afis_produse");
+	
 	//SELECTARE ELEMENTE
 	document.getElementById("afis_produse").onclick=function(e){
 		var produse = this.children;
@@ -66,15 +69,34 @@ window.onload=function(){
 	//SORTARE DUPA NUME
 	//DOAR PE ELEMENTELE AFISATE LA MOMENTUL RESPECTIV
 	document.getElementById("sort_nume").onclick=function(){
-			var tabelProd = document.getElementById("afis_produse");
-			var produse = tabelProd.children;
-			var vranduri = Array.prototype.slice.call(produse);
-			var crescator = true;
+		let cheie = localStorage.length;
+		let s = "sortnume ";
+		let tipSortare;
+		//verificam daca a fost apasat checkboxul pentru sortare descrescatoare
+		var check = document.getElementById("i_check1");
+		if(check.checked)
+		{
+			s+=0;
+			tip = 0;
+		}
+		else
+		{	
+			s+=1;
+			tip = 1;
+		}
+		
+		localStorage.setItem(cheie,s);
+				
+		sortareDupaNume(tip);
+	}
 			
-			//verificam daca a fost apasat checkboxul pentru sortare descrescatoare
-			var check = document.getElementById("i_check1");
-			if(check.checked)
-				crescator = false; 
+	function sortareDupaNume(tipSortare){
+		var produse = tabelProd.children;
+		var vranduri = Array.prototype.slice.call(produse);
+		var crescator = true;
+			
+		if(!tipSortare)
+			crescator = false; 
 				
 			
       
@@ -90,94 +112,136 @@ window.onload=function(){
         tabelProd.appendChild(rand);
 			}
 	}
+	
 	//SORTARE DUPA PRET
 	//DOAR PE ELEMENTELE AFISATE LA MOMENTUL RESPECTIV
 	document.getElementById("sort_pret").onclick=function(){
-			var tabelProd = document.getElementById("afis_produse");
-			var produse = tabelProd.children;
-			var vranduri = Array.prototype.slice.call(produse);
-			var crescator = true;
+		let cheie = localStorage.length;
+		let s = "sortpret ";
+		let tipSortare;
+		//verificam daca a fost apasat checkboxul pentru sortare descrescatoare
+		var check = document.getElementById("i_check2");
+		if(check.checked)
+		{
+			s+=0;
+			tip = 0;
+		}
+		else
+		{
+			s+=1;
+			tip = 1;
+		}
+		localStorage.setItem(cheie,s);
+		sortareDupaPret(tip);
+	}
+   function sortareDupaPret(tipSortare){
+	    var produse = tabelProd.children;
+		var vranduri = Array.prototype.slice.call(produse);
+		var crescator = true;
 			
-			//verificam daca a fost apasat checkboxul pentru sortare descrescatoare
-			var check = document.getElementById("i_check2");
-			if(check.checked)
-				crescator = false; 
-				
-			
-      
-      vranduri.sort(function(a,b){
+		
+		if(!tipSortare)
+			crescator = false; 
+	
+		vranduri.sort(function(a,b){
         return a.children[3].innerHTML.localeCompare(b.children[3].innerHTML);
-      });
+		});
 	  
-	  //daca checkboxul ptr sortare descrescatoare a fost apasat, inversam elementele sortate ale arrayului de produse
-	  if(!crescator)
-		  vranduri.reverse();
+		//daca checkboxul ptr sortare descrescatoare a fost apasat, inversam elementele sortate ale arrayului de produse
+		if(!crescator)
+			vranduri.reverse();
 
-      for(let rand of vranduri){
-        tabelProd.appendChild(rand);
+		for(let rand of vranduri){
+			tabelProd.appendChild(rand);
 			}
-
    }
+   
    //FILTRARE DUPA TIP
    //ADIDASI PENTRU BARBATI
    document.getElementById("i_check3").onclick=function(){
 		
+		let cheie = localStorage.length;
+		let s = "M ";
 		var check = document.getElementById("i_check3");
 		if(check.checked)
-			adaugaElemente("M");
+			adauga=true;
 		else
-			stergeElemente("M");	
-   }
+			adauga=false;
+		s+=adauga;
+		localStorage.setItem(cheie,s);
+		filtrareTip("M",adauga);
+	}
+   
+   
    //ADIDASI PENTRU FEMEI
    document.getElementById("i_check4").onclick=function(){
 		
+		let cheie = localStorage.length;
+		let s = "F ";
 		var check = document.getElementById("i_check4");
 		if(check.checked)
-			adaugaElemente("F");
+			adauga=true;
 		else
-			stergeElemente("F");	
+			adauga=false;
+		s+=adauga;
+		localStorage.setItem(cheie,s);
+		filtrareTip("F",adauga);
    }
+   
    //ADIDASI UNISEX
    document.getElementById("i_check5").onclick=function(){
 		
+		let cheie = localStorage.length;
+		let s = "U ";
+		let adauga;
 		var check = document.getElementById("i_check5");
 		if(check.checked)
-			adaugaElemente("U");
+			adauga=true;
 		else
-			stergeElemente("U");	
+			adauga=false;
+		s+=adauga;
+		localStorage.setItem(cheie,s);
+		filtrareTip("U",adauga);	
    }
+   
+   //FUNCTIE GENERALA DE FILTRARE
+   function filtrareTip(tip,adauga){
+		
+		if(adauga)
+			adaugaElemente(tip);
+		else
+			stergeElemente(tip);
+   }
+   
    //FUNCTIE DE ADAUGARE ELEMENTE DIN JSON DUPA TIP
    function adaugaElemente(tip){
-		let container=document.getElementById("afis_produse");
-
+		
+		let textTemplate = tabelProd.innerHTML;
 			
-			let textTemplate = container.innerHTML;
-			
-			for(let i=0;i<obJson.adidasi.length;i++){
-				if(obJson.adidasi[i].gen == tip)
-				{
-				textTemplate+=ejs.render("<div class='template_adidas'>\
-				<figure>\
-				<img src=<%= '/imagini/' + adidas.poza %> alt='imagine lipsa' title= <%= adidas.nume %>>\
-				<figcaption id='nume'><%= adidas.nume %></figcaption>\
-				</figure>\
-				<p><%= adidas.marimi %></p>\
-				<p><%= adidas.culoare %></p>\
-				<p><%= adidas.pret %> RON</p>\
-				<p><%= adidas.gen %></p>\
-				</div>", 
-				{adidas: obJson.adidasi[i]});
-				}
+		for(let i=0;i<obJson.adidasi.length;i++){
+			if(obJson.adidasi[i].gen == tip)
+			{
+			textTemplate+=ejs.render("<div class='template_adidas'>\
+			<figure>\
+			<img src=<%= '/imagini/' + adidas.poza %> alt='imagine lipsa' title= <%= adidas.nume %>>\
+			<figcaption id='nume'><%= adidas.nume %></figcaption>\
+			</figure>\
+			<p><%= adidas.marimi %></p>\
+			<p><%= adidas.culoare %></p>\
+			<p><%= adidas.pret %> RON</p>\
+			<p><%= adidas.gen %></p>\
+			</div>", 
+			{adidas: obJson.adidasi[i]});
 			}
-			container.innerHTML=textTemplate;
+		}
+		tabelProd.innerHTML=textTemplate;
 			
 	   
    }
+   
    //STERGERE ELEMENTE DIN TABEL DUPA TIP
    function stergeElemente(tip){
-		var tabelProd = document.getElementById("afis_produse");
 		
-		 
 		var randuri = tabelProd.children;
 
 		for(let i=0; i<randuri.length;i++){
@@ -187,12 +251,23 @@ window.onload=function(){
         }
 		
    }}
+   
    //FILTRARE ELEMENTE DUPA PRET MAXIM
    //PE TOATE PRODUSELE DISPONIBILE PE SITE
    document.getElementById("filter_pret").onclick=function(){
 		resetare();
-		var tabelProd = document.getElementById("afis_produse");
+		let cheie = localStorage.length;
+		let s = "pretmaxim ";
 		var pretMax = document.getElementById("i_range1").value;
+		s+=pretMax;
+		localStorage.setItem(cheie,s);
+		filtrarePret(pretMax);
+		
+   }
+   
+   function filtrarePret(pretMax){
+	   
+		
 		
 		var randuri = tabelProd.children;
 		for(let i = 0; i < randuri.length; i++){
@@ -206,12 +281,22 @@ window.onload=function(){
 			}
 		}
    }
+   
    //CAUTARE ELEMENTE DUPA MARIME
    //PE TOATE PRODUSELE DISPONIBILE PE SITE
    document.getElementById("filter_marime").onclick=function(){
+		
 		resetare();
-	    var tabelProd = document.getElementById("afis_produse");
-	    var marime = prompt("Introduceti marimea cautata: ");
+		var marime = prompt("Introduceti marimea cautata: ");
+		let cheie = localStorage.length;
+		let s = "marime ";
+		s+=marime;
+		localStorage.setItem(cheie,s);
+	    filtrareMarime(marime);
+	}
+	
+	function filtrareMarime(marime){
+		
 		tabelProd.innerHTML="";
 		
 		let textTemplate = "";
@@ -233,25 +318,27 @@ window.onload=function(){
 				}
 			}
 			tabelProd.innerHTML=textTemplate;
-		
-		
-		
-   }
+	}
+	
    //BUTON RESETARE TABEL
    document.getElementById("resetare").onclick=function(){
 		resetare();
 	}
+	
 	//FUNCTIE RESETARE TABEL
 	function resetare(){
-		var tabelProd = document.getElementById("afis_produse");
+		
+		localStorage.clear();
+		//actualizarePreferinte();
 		tabelProd.innerHTML="";
 		afiseazaJsonTemplate(obJson);
 		setarePret(0);
 	}
+	
 	//CALCUL PRET PRODUSE SELECTATE
 	document.getElementById("calcul_pret").onclick=function(){
 		var pretTotal = 0;
-		var tabelProd = document.getElementById("afis_produse");
+		
 		var randuri = tabelProd.children;
 		
 		for(let i=0;i<randuri.length;i++)
@@ -265,6 +352,7 @@ window.onload=function(){
 		}
 		setarePret(pretTotal);
 	}
+	
 	//SETARE PRET AFISAT
 	function setarePret(pret){
 		let cutieMesaj = document.getElementById("pret_calculat");
@@ -272,6 +360,56 @@ window.onload=function(){
 		mesaj = mesaj.split(" ");
 		mesaj[5] = pret;
 		cutieMesaj.innerHTML = mesaj.join(" ");
+	}
+	
+	//UTILIZARE LOCAL STORAGE
+	function actualizarePreferinte(){
+		if(localStorage.length != 0){
+			var cheie = 0;
+			var text="";
+			while(localStorage.getItem(cheie))
+			{
+				let optiune = localStorage.getItem(cheie);
+				//text +=optiune;
+				optiune = optiune.split(" ");
+				cheie+=Number(1);
+				switch(optiune[0])
+				{
+					case "sortnume":
+						sortareDupaNume(Number(optiune[1]));
+						break;
+					case "sortpret":
+						sortareDupaPret(Number(optiune[1]));
+						break;
+					case "marime":
+						if(optiune[1])
+							filtrareMarime(Number(optiune[1]));
+						break;
+					case "pretmaxim":
+						filtrarePret(Number(optiune[1]));
+						break;
+					case "F":
+						if(optiune[1] == "true")
+							
+						if(optiune[1] == "false")
+						
+						break;
+					case "M":
+						if(optiune[1] == "true")
+							
+						if(optiune[1] == "false")
+							
+						break;
+					case "U":
+						if(optiune[1] == "true")
+							
+						if(optiune[1] == "false")
+							
+						break;
+				}
+			}
+			//tabelProd.innerHTML = text;
+		}
 	}
 	
 }
