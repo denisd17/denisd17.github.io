@@ -46,6 +46,7 @@ window.onload=function(){
 				<p><%= adidas.culoare %></p>\
 				<p><%= adidas.pret %> RON</p>\
 				<p><%= adidas.gen %></p>\
+				<p><%= adidas.livraregratis%><p>\
 				</div>", 
 				{adidas: obJson.adidasi[i]});
 				}
@@ -56,6 +57,42 @@ window.onload=function(){
 			actualizarePreferinte();
 	}
 	tabelProd = document.getElementById("afis_produse");
+	tabelNoutati = document.getElementById("noutati");
+	ofertaActiva = false;
+	//GENERARE NUMAR RANDOM
+	function randInt(a,b){
+		return Math.trunc(a+(b-a)*Math.random());
+	}
+	
+	function actualizareStoc(){
+		let nr_perechi = randInt(1, 11);
+		let id = randInt(1,obJson.adidasi.length+1);
+		let sansa = randInt(1,4);
+		let model = obJson.adidasi[id-1].nume;
+		let text = "NOU PE STOC! AM ADUS " + nr_perechi + " PERECHI DE ADIDASI DIN MARCA " + model.toUpperCase();
+		tabelNoutati.children[0].innerHTML = text;
+		if(Number(sansa) == 1 && ofertaActiva == false)
+		{
+			let id_oferta = randInt(1,obJson.adidasi.length+1);
+			let model_oferta = obJson.adidasi[id-1].nume;
+			let pret_original = Number(obJson.adidasi[id-1].pret);
+			let reducere = Number(randInt(25,76));
+			let pret_oferta = Math.trunc((Number(pret_original) * reducere)/100);
+			//GENERARE CULOARE RANDOM
+			let r = Number(randInt(0,256)); 
+			let g = Number(randInt(0,256)); 
+			let b = Number(randInt(0,256));
+			let randomColor = "rgb(" + r + "," + g + "," + b + ")";
+			
+			tabelNoutati.children[1].innerHTML = "WOW SUPER OFERTA! " + model_oferta.toUpperCase() + " LA DOAR " + pret_oferta + " RON! PRET VECHI: " + pret_original + "RON";
+			tabelNoutati.children[1].classList.toggle("invizibil")
+			tabelNoutati.children[1].style.color = randomColor;
+			tabelNoutati.style.border = "solid 2px " + randomColor;
+			ofertaActiva = true;
+			setTimeout(function(){ofertaActiva = false;tabelNoutati.children[1].classList.toggle("invizibil"); tabelNoutati.style.border = "initial";},5000);
+		}
+	}
+	setInterval(actualizareStoc, 3000);
 	
 	//SELECTARE ELEMENTE
 	document.getElementById("afis_produse").onclick=function(e){
@@ -164,12 +201,12 @@ window.onload=function(){
 		let s = "M ";
 		var check = document.getElementById("i_check3");
 		if(check.checked)
-			adauga=true;
+			adauga=1;
 		else
-			adauga=false;
+			adauga=0;
 		s+=adauga;
 		localStorage.setItem(cheie,s);
-		filtrareTip("M",adauga);
+		filtrareTip("M",Number(adauga));
 	}
    
    
@@ -180,9 +217,9 @@ window.onload=function(){
 		let s = "F ";
 		var check = document.getElementById("i_check4");
 		if(check.checked)
-			adauga=true;
+			adauga=1;
 		else
-			adauga=false;
+			adauga=0;
 		s+=adauga;
 		localStorage.setItem(cheie,s);
 		filtrareTip("F",adauga);
@@ -196,9 +233,9 @@ window.onload=function(){
 		let adauga;
 		var check = document.getElementById("i_check5");
 		if(check.checked)
-			adauga=true;
+			adauga=1;
 		else
-			adauga=false;
+			adauga=0;
 		s+=adauga;
 		localStorage.setItem(cheie,s);
 		filtrareTip("U",adauga);	
@@ -230,6 +267,7 @@ window.onload=function(){
 			<p><%= adidas.culoare %></p>\
 			<p><%= adidas.pret %> RON</p>\
 			<p><%= adidas.gen %></p>\
+			<p><%= adidas.livraregratis%><p>\
 			</div>", 
 			{adidas: obJson.adidasi[i]});
 			}
@@ -286,8 +324,13 @@ window.onload=function(){
    //PE TOATE PRODUSELE DISPONIBILE PE SITE
    document.getElementById("filter_marime").onclick=function(){
 		
-		resetare();
+		
 		var marime = prompt("Introduceti marimea cautata: ");
+		//VERIFICAM INAINTE CA AVEM INPUT VALID
+		if(!Number(marime) || marime==null)
+			return;
+		
+		resetare();
 		let cheie = localStorage.length;
 		let s = "marime ";
 		s+=marime;
@@ -313,22 +356,47 @@ window.onload=function(){
 				<p><%= adidas.culoare %></p>\
 				<p><%= adidas.pret %> RON</p>\
 				<p><%= adidas.gen %></p>\
+				<p><%= adidas.livraregratis%><p>\
 				</div>", 
 				{adidas: obJson.adidasi[i]});
 				}
 			}
 			tabelProd.innerHTML=textTemplate;
 	}
+	//CAUTARE PRODUSE CU LIVRARE GRATUITA
+	document.getElementById("filter_livrare").onclick=function(){
+		let cheie = localStorage.length;
+		let s = "cautalivrare";
+		localStorage.setItem(cheie,s);
+		cautareLivrareGratis();
+	}
 	
+	function cautareLivrareGratis(){
+		var randuri = tabelProd.children;
+		for(let i = 0;i<randuri.length;i++)
+		{
+			
+			let livrare = randuri[i].children[5].innerHTML == "true" ? true : false;
+			if(!livrare)
+			{
+				randuri[i].remove();
+				i-=1;
+			}
+		}
+	}
    //BUTON RESETARE TABEL
    document.getElementById("resetare").onclick=function(){
 		resetare();
+		alert("CONTINUTUL TABELULUI A FOST RESETAT!");
 	}
 	
 	//FUNCTIE RESETARE TABEL
 	function resetare(){
 		
 		localStorage.clear();
+		document.getElementById("i_check3").checked = true;
+		document.getElementById("i_check4").checked = true;
+		document.getElementById("i_check5").checked = true;
 		//actualizarePreferinte();
 		tabelProd.innerHTML="";
 		afiseazaJsonTemplate(obJson);
@@ -389,23 +457,30 @@ window.onload=function(){
 						filtrarePret(Number(optiune[1]));
 						break;
 					case "F":
-						if(optiune[1] == "true")
-							
-						if(optiune[1] == "false")
-						
+						filtrareTip("F",Number(optiune[1]));
+						if(Number(optiune[1]) == 0)
+							document.getElementById("i_check4").checked = false;
+						else
+							document.getElementById("i_check4").checked = true;
 						break;
 					case "M":
-						if(optiune[1] == "true")
-							
-						if(optiune[1] == "false")
-							
+						filtrareTip("M",Number(optiune[1]));
+						if(Number(optiune[1]) == 0)
+							document.getElementById("i_check3").checked = false;
+						else
+							document.getElementById("i_check3").checked = true;
 						break;
 					case "U":
-						if(optiune[1] == "true")
-							
-						if(optiune[1] == "false")
-							
+						filtrareTip("U",Number(optiune[1]));
+						if(Number(optiune[1]) == 0)
+							document.getElementById("i_check5").checked = false;
+						else
+							document.getElementById("i_check5").checked = true;
 						break;
+					case "cautalivrare":
+						cautareLivrareGratis();
+						break;
+					
 				}
 			}
 			//tabelProd.innerHTML = text;

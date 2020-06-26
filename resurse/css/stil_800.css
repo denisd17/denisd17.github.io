@@ -139,3 +139,28 @@ td::before{
 	flex-grow: 2;
 	order: 3;
 }
+
+/*STILIZARE MENIU SORTARE FILTRARE CALCULARE*/
+.c_butoane button{
+	
+	font-size: 1.4rem;	
+	
+}
+
+#container_butoane input[name="gr_chck"]{
+	transform: scale(3) translate(2px,2px);
+	visibility: hidden;
+}
+#container_butoane input[name="gr_chck"]::before{
+	transform: scale(0.9) translate(0px,-2px);
+	
+}
+#container_butoane input[name="gr_chck"]:checked::before{
+	transform: scale(0.9) translate(0px,-2px);
+}
+#container_butoane div:nth-child(7) input[type="checkbox"]{
+	transform: scale(1.1) translate(2px,1px);
+}
+div[id="noutati"]{
+	font-size: 1.3rem;
+}

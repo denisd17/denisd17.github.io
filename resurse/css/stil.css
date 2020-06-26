@@ -166,20 +166,32 @@ header>form input[type=submit]:hover{
 	transform: scale(1.3) translate(0px,-1px);
 }
 #container_butoane div:nth-child(7){
+	display: grid;
+	grid-template-columns: auto auto auto;
+	font-size: 1.4rem;
 	grid-area: 4/1/5/3;
 	width: 100%;
 }
 #container_butoane div:nth-child(7)>*{
 	display: inline-block;
-	width: 33%;
+	width: auto%;
 	text-align: center;
-	font-size: 2rem;
+	font-size: 1.8rem;
 	
 }
 #container_butoane div:nth-child(7) input[type="checkbox"]{
-	transform: scale(1.8) translate(2px,-2px);
+	transform: scale(1.7) translate(2px,-2px);
 }
-
+/*DISPLAY*/
+.vizibil{
+	display: visible;
+}
+.oferta{
+	color: red;
+}
+.invizibil{
+	visibility: hidden;
+}
 /*SELECTAT*/
 .selectat{
 	background-color: #46a29f;
@@ -190,11 +202,12 @@ header>form input[type=submit]:hover{
 }
 /*TEMPLATE*/
 .afis{
-	
+	width: 100%;
 }
 .template_adidas{
 	display: block;
 	text-align: center;
+	width: 100%;
 }
 
 .template_adidas>figure{
@@ -230,6 +243,14 @@ p::before{
 
 .template_adidas p:nth-child(4)::before{
 	content: "Pret"
+}
+
+.template_adidas p:nth-child(5)::before{
+	content: "Gen"
+}
+
+.template_adidas p:nth-child(6)::before{
+	content: "Livrare gratuita"
 }
 
 .template_adidas p:last-child{

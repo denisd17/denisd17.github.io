@@ -55,4 +55,54 @@ display: inline;
 #coloane>p:nth-child(3){
 	order: 2;
 }
+.c_butoane button{
+	
+	font-size: 1.3rem;	
+	
+}
+.c_butoane{
+	display: grid;
+	padding: 20px;
+	grid-template-columns: auto auto;
+	grid-row-gap: 1em;
+	grid-column-gap: 1em;
+	
+}
+#container_butoane{
+	width: 100%;
+}
+.c_butoane>*{
+	display: block;
+	text-align: center;
+}
+#container_butoane button:nth-child(8){
+	grid-area: 5/1/6/3;
+	
+}
+#container_butoane button:nth-child(9){
+	grid-area: 6/1/7/3;
+	
+}
+#container_butoane button:nth-child(10){
+	grid-area: 7/1/8/3;
+	
+}
+#container_butoane button:nth-child(11){
+	grid-area: 8/1/9/3;
+	
+}
+#container_butoane input[name="gr_chck"]{
+	transform: scale(3) translate(2px,2px);
+	visibility: hidden;
+}
+#container_butoane input[name="gr_chck"]::before{
+	transform: scale(0.7) translate(0px,-3px);
+	
+}
+#container_butoane input[name="gr_chck"]:checked::before{
+	transform: scale(0.7) translate(0px,-3px);
+}
 
+div[id="noutati"]{
+	font-size: 1.1rem;
+}
