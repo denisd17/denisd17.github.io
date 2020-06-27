@@ -94,6 +94,7 @@ window.onload=function(){
 		}
 	}
 	setInterval(actualizareStoc, 3000);
+	
 	//KEYPRESS
 	window.onkeydown=function(e){
 		
@@ -112,7 +113,14 @@ window.onload=function(){
 		
 	}
 	
-	
+	//CHEIE PENTRU STOCARE IN LOCAL STORAGE
+	function cheieLocalStorage(){
+		var optiune = localStorage.getItem("optiune");
+		if(optiune)
+			return localStorage.length - 1;
+		else
+			return localStorage.length;
+	}
 	//SELECTARE ELEMENTE
 	document.getElementById("afis_produse").onclick=function(){
 		var produse = this.children;
@@ -126,7 +134,7 @@ window.onload=function(){
 	//SORTARE DUPA NUME
 	//DOAR PE ELEMENTELE AFISATE LA MOMENTUL RESPECTIV
 	document.getElementById("sort_nume").onclick=function(){
-		let cheie = localStorage.length;
+		let cheie = cheieLocalStorage();
 		let s = "sortnume ";
 		let tipSortare;
 		//verificam daca a fost apasat checkboxul pentru sortare descrescatoare
@@ -173,7 +181,7 @@ window.onload=function(){
 	//SORTARE DUPA PRET
 	//DOAR PE ELEMENTELE AFISATE LA MOMENTUL RESPECTIV
 	document.getElementById("sort_pret").onclick=function(){
-		let cheie = localStorage.length;
+		let cheie = cheieLocalStorage();
 		let s = "sortpret ";
 		let tipSortare;
 		//verificam daca a fost apasat checkboxul pentru sortare descrescatoare
@@ -217,7 +225,7 @@ window.onload=function(){
    //ADIDASI PENTRU BARBATI
    document.getElementById("i_check3").onclick=function(){
 		
-		let cheie = localStorage.length;
+		let cheie = cheieLocalStorage();
 		let s = "M ";
 		var check = document.getElementById("i_check3");
 		if(check.checked)
@@ -233,7 +241,7 @@ window.onload=function(){
    //ADIDASI PENTRU FEMEI
    document.getElementById("i_check4").onclick=function(){
 		
-		let cheie = localStorage.length;
+		let cheie = cheieLocalStorage();
 		let s = "F ";
 		var check = document.getElementById("i_check4");
 		if(check.checked)
@@ -248,7 +256,7 @@ window.onload=function(){
    //ADIDASI UNISEX
    document.getElementById("i_check5").onclick=function(){
 		
-		let cheie = localStorage.length;
+		let cheie = cheieLocalStorage();
 		let s = "U ";
 		let adauga;
 		var check = document.getElementById("i_check5");
@@ -315,7 +323,7 @@ window.onload=function(){
    //PE TOATE PRODUSELE DISPONIBILE PE SITE
    document.getElementById("filter_pret").onclick=function(){
 		resetare();
-		let cheie = localStorage.length;
+		let cheie = cheieLocalStorage();
 		let s = "pretmaxim ";
 		var pretMax = document.getElementById("i_range1").value;
 		s+=pretMax;
@@ -352,7 +360,7 @@ window.onload=function(){
 			return;
 		
 		resetare();
-		let cheie = localStorage.length;
+		let cheie = cheieLocalStorage();
 		let s = "marime ";
 		s+=marime;
 		localStorage.setItem(cheie,s);
@@ -387,7 +395,7 @@ window.onload=function(){
 	}
 	//CAUTARE PRODUSE CU LIVRARE GRATUITA
 	document.getElementById("filter_livrare").onclick=function(){
-		let cheie = localStorage.length;
+		let cheie = cheieLocalStorage();
 		let s = "cautalivrare";
 		localStorage.setItem(cheie,s);
 		cautareLivrareGratis();

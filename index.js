@@ -58,6 +58,7 @@ app.post('/inreg', function(req, res){
 
 //LOGARE
 app.post('/login', function(req, res){
+
   var dateFormular= new formidable.IncomingForm()
 	dateFormular.parse(req, function(err, fields, files){	
 		var textFisier= fs.readFileSync("useri.json") //cale relativa la index.js

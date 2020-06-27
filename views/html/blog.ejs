@@ -13,6 +13,9 @@
 		<link rel="stylesheet" type="text/css" href="/css/stil_400.css" media="screen and (max-width:400px)"/>
 		<script src="/js/script.js">
 		</script>
+		<script src="/js/scriptInactivitate.js"></script>
+		<script src="/js/varstaUtilizator.js"></script>
+		<script src="/js/marimeFont.js"></script>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 	</head>
@@ -21,6 +24,18 @@
 		<%-  include('../fragmente/header')  %>
 		
 		<main>
+			<div id="optiuni" class="postare">
+			<label>Font Mic
+				<input id="i_rad1" name="gr_rad" value="1" type="radio"/>
+			</label>
+			<label>Font Mediu
+				<input id="i_rad2" name="gr_rad" value="2" type="radio"/>
+			</label>
+			<label>Font Mare
+				<input id="i_rad3" name="gr_rad" value="3" type="radio"/>
+			</label>
+			<button class="buton_stil" id="resetareop">RESETARE DIMENSIUNE TEXT</button>
+			</div>
 			<section id="blog">
 				<h2>Blog</h2>
 				<article class="postare">
@@ -57,7 +72,9 @@
 
 
 			</section>
-			
+			<div class="postare">
+				<button id="asc_imag" class="buton_stil">ASCUNDE IMAGINI</button>
+			</div>
 		</main>
 		
 		<%-  include('../fragmente/footer')  %>

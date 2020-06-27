@@ -15,6 +15,8 @@
 		<script src="/js/ejs.min.js"></script>
 		<script src="/js/scriptajax.js"></script>
 		<script src="/js/scriptInactivitate.js"></script>
+		<script src="/js/varstaUtilizator.js"></script>
+		
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 	</head>
@@ -81,7 +83,13 @@
 				<div class="afis" id="afis_produse"></div>
 				<p id="pret_calculat">Pretul produselor selectate este de 0 RON</p>
 			</section>
-			
+			<div class="postare" id="ravas">
+				<p>Mesajul zilei: </p>
+				<p></p>
+			</div>
+			<div class="postare">
+				<button id="asc_imag" class="buton_stil">ASCUNDE IMAGINI</button>
+			</div>
 		</main>
 		
 		<%-  include('../fragmente/footer')  %>
