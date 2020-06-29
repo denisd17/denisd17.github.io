@@ -218,6 +218,13 @@ header>form input[type=submit]:hover{
 	color: white;
 	border: 1px solid black;
 }
+#data_n{
+	transform: translate(0px,-2px);
+	font-family: 'Teko', sans-serif;
+	border: 1px solid black;
+	font-size: 1rem;
+	
+}
 /*INACTIV*/
 header div[id="id_inactivitate"]{
 	position: fixed;

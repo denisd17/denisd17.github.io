@@ -459,16 +459,42 @@ window.onload=function(){
 		mesaj[5] = pret;
 		cutieMesaj.innerHTML = mesaj.join(" ");
 	}
+	
 	//SORTARE COMPLEXA 1
-	//SORTARE DUPA NUME BRAND, PRET, RATING
+	//SORTARE DUPA NUME BRAND, PRET
 	document.getElementById("complex1").onclick=function(){
 		resetare();
 		var randuri = tabelProd.children;
 		var vranduri = Array.prototype.slice.call(randuri);
+		
+		vranduri.sort(function(a,b){
+			let n1 = a.children[0].children[1].innerHTML;
+			let n2 = b.children[0].children[1].innerHTML;
+			
+			n1 = n1.split(" ")[0]; //nume brand
+			n2 = n2.split(" ")[0];
+			
+			let rez = n1.localeCompare(n2);
+			
+			if(rez == 0)
+			{
+				let p1 = parseInt(a.children[3].innerHTML);
+				let p2 = parseInt(b.children[3].innerHTML);
+				if(p1 == p2)
+					return 0;
+				
+				return p1 < p2 ? -1 : 1;
+			}
+			return rez;
+		});
+		
+		for(let rand of vranduri){
+			tabelProd.appendChild(rand);
+			}
 	}
 	
 	//SORTARE COMPLEXA 2
-	//GRUPATI DUPA LUNA APARITIE, APOI AN, APOI ZI
+	//GRUPATI DUPA LUNA APARITIE, APOI AN
 	document.getElementById("complex2").onclick=function(){
 		resetare();
 		var randuri = tabelProd.children;
@@ -501,11 +527,37 @@ window.onload=function(){
 	}
 	
 	//SORTARE COMPLEXA 3
-	//SORTARE DUPA NUMAR PERECHI VALABILE APOI DUPA LIVRARE
+	//SORTARE DUPA NUMAR PERECHI VALABILE
 	document.getElementById("complex3").onclick=function(){
 		resetare();
 		var randuri = tabelProd.children;
 		var vranduri = Array.prototype.slice.call(randuri);
+		
+		vranduri.sort(function(a,b){
+			
+			let m1 = a.children[1].innerHTML;
+			let m2 = b.children[1].innerHTML;
+			
+			let l1 = 1;
+			let l2 = 1;
+			
+			for(let i = 0; i < m1.length; i++)
+				if(m1[i] == ",")
+					l1 = l1 + 1;
+			
+			for(let i = 0; i < m2.length; i++)
+				if(m2[i] == ",")
+					l2 = l2 + 1;
+			
+			if(l1 == l2)
+				return 0;
+			
+			return l1 < l2 ? -1 : 1;
+		});
+		
+		for(let rand of vranduri){
+			tabelProd.appendChild(rand);
+			}
 	}
 	
 	//UTILIZARE LOCAL STORAGE

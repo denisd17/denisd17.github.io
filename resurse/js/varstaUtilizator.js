@@ -3,7 +3,12 @@ function calculVarsta(){
 clicked = false;
 document.getElementById("calcul_varsta").onclick=function(){
 	let dataNastere = document.getElementById("data_n").value;
-	dataNastere = new Date(dataNastere);
+	dataNastere = dataNastere.split("#");
+	if(dataNastere.length == 3)
+		dataNastere = new Date(dataNastere[2],parseInt(dataNastere[1],10)-1,dataNastere[0]);
+	else
+		return;
+	
 	if(!isNaN(dataNastere.getDay()) && !clicked)
 	{
 		
@@ -13,17 +18,18 @@ document.getElementById("calcul_varsta").onclick=function(){
 }
 function varsta_curenta(dataN){
 	//DATA CURENTA
+	let chenar = document.getElementById("vv");
+	chenar.classList.remove("display_none");
+	let textc = ""
+	let timp = Math.abs(new Date() - dataN);
 	
-	let dataCurenta = new Date();
+	if(timp < 0)
+		textc+="EROARE: Data de nastere nu poate fi mai mare decat data curenta!"
 	
-	let timp1 = dataCurenta.getTime();
-	let timp2 = dataN.getTime();
-	let timp = timp1 - timp2;
-	
+	else{
 	let ms = timp % 1000;
 	timp = Math.trunc(timp / 1000); //obtinem secundele
 	let s = timp % 60;
-	//alert(s);
 	timp = Math.trunc(timp / 60); //obtinem minutele
 	let min = timp % 60;
 	timp = Math.trunc(timp / 60); //obtinem orele
@@ -34,12 +40,8 @@ function varsta_curenta(dataN){
 	let luni = timp % 12;
 	timp = Math.trunc(timp / 12); //obtinem anii
 	let ani = timp;
-	
-	let chenar = document.getElementById("vv");
-	chenar.classList.remove("display_none");
-	
-	let textc = "Varsta dvs. este: " + ani + " ani " +  luni  + " luni  " +  zile  + " zile " +  ore  + " ore " +  min + " minute " +  s + " secunde " + ms + " milisecunde ";
-	
+	textc = "Varsta dvs. este: " + ani + " ani " +  luni  + " luni  " +  zile  + " zile " +  ore  + " ore " +  min + " minute " +  s + " secunde " + ms + " milisecunde ";
+	}
 	document.getElementById("vv").innerHTML = textc; 
 }
 	//ASCUNDERE IMAGINI

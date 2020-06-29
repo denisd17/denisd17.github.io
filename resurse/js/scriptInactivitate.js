@@ -4,7 +4,7 @@ function userInactiv(){
 	var timpInactivitate = 0;
 	var chenar = document.getElementById("id_inactivitate");
 
-	setInterval(calculTimp, 1000);
+	setInterval(calculTimp, 60000); //SETEAZA LA LOC 1000, AM SETAT LA 60000 PENTRU A NU APAREA INCONTINUU DIVUL IN TIMPUL PREZENTARII
 	
 	//RESETARE TIMP INACTIVITATE
 	function resetareTimp(){
